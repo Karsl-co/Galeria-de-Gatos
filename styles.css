@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background: #f5f5f7;
+    color: #1d1d1f;
+}
+
+/* NAV */
+header {
+    position: fixed;
+    width: 100%;
+    background: rgba(255,255,255,0.8);
+    backdrop-filter: blur(10px);
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #1d1d1f;
+    font-size: 0.9rem;
+}
+
+/* HERO */
+#hero {
+    height: 100vh;
+    background: url(img/cat.jpg) center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: black
+}
+
+#hero h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+#hero p {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+/* BOTÓN APPLE */
+.cta-button {
+    margin-top: 2rem;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    border: none;
+    background: white;
+    color: black;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+}
+
+/* SECCIÓN */
+#gatos {
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+#gatos h2 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* GRID */
+.gatos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* CARD APPLE */
+.gatos-card {
+    background: white;
+    border-radius: 20px;
+    padding: 1rem;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.gatos-card img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.gatos-card h3 {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+}
+
+.gatos-card p {
+    color: gray;
+    font-size: 0.9rem;
+}
+
+/* HOVER SUAVE */
+.gatos-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ANIMACIÓN */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* HERO */
+#hero h1 {
+    animation: fadeUp 1s ease forwards;
+}
+
+#hero p {
+    animation: fadeUp 1.2s ease forwards;
+}
+
+.cta-button {
+    animation: fadeUp 1.4s ease forwards;
+}
