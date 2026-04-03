@@ -5,48 +5,69 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: #f5f5f7;
     color: #1d1d1f;
 }
 
-/* NAV */
 header {
     position: fixed;
     width: 100%;
-    background: rgba(255,255,255,0.8);
-    backdrop-filter: blur(10px);
     top: 0;
     z-index: 1000;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, background 0.3s;
+}
+
+.header-hidden {
+    transform: translateY(-100%);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 1rem 3rem;
     max-width: 1200px;
     margin: auto;
 }
 
 .logo {
     font-weight: 600;
-    font-size: 1.2rem;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .nav-links a {
     text-decoration: none;
     color: #1d1d1f;
-    font-size: 0.9rem;
+    position: relative;
 }
 
-/* HERO */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: black;
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
 #hero {
     height: 100vh;
     background: url(img/cat.jpg) center/cover no-repeat;
@@ -54,40 +75,35 @@ nav {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    color:white;
     text-align: center;
-
-    color: black
 }
 
 #hero h1 {
     font-size: 3.5rem;
-    font-weight: 600;
+    animation: fadeUp 1s ease;
 }
 
 #hero p {
     margin-top: 1rem;
-    font-size: 1.2rem;
     opacity: 0.8;
+    animation: fadeUp 1.2s ease;
 }
 
-/* BOTÓN APPLE */
 .cta-button {
     margin-top: 2rem;
     padding: 0.8rem 2rem;
     border-radius: 30px;
     border: none;
     background: white;
-    color: black;
-    font-weight: 500;
     cursor: pointer;
     transition: 0.3s;
 }
 
 .cta-button:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
 }
 
-/* SECCIÓN */
 #gatos {
     padding: 6rem 2rem;
     max-width: 1200px;
@@ -95,24 +111,16 @@ nav {
     text-align: center;
 }
 
-#gatos h2 {
-    font-size: 2rem;
-    margin-bottom: 3rem;
-}
-
-/* GRID */
 .gatos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-/* CARD APPLE */
 .gatos-card {
     background: white;
     border-radius: 20px;
     padding: 1rem;
-    text-align: left;
     transition: 0.3s;
 }
 
@@ -121,22 +129,11 @@ nav {
     border-radius: 15px;
 }
 
-.gatos-card h3 {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-}
-
-.gatos-card p {
-    color: gray;
-    font-size: 0.9rem;
-}
-
-/* HOVER SUAVE */
 .gatos-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
 }
 
-/* ANIMACIÓN */
+
 @keyframes fadeUp {
     from {
         opacity: 0;
@@ -148,15 +145,14 @@ nav {
     }
 }
 
-/* HERO */
-#hero h1 {
-    animation: fadeUp 1s ease forwards;
+/
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.6s;
 }
 
-#hero p {
-    animation: fadeUp 1.2s ease forwards;
-}
-
-.cta-button {
-    animation: fadeUp 1.4s ease forwards;
+.show {
+    opacity: 1;
+    transform: translateY(0);
 }
